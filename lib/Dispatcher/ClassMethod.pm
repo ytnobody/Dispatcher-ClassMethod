@@ -24,16 +24,20 @@ sub match {
     ;
 
     unless ($self->{loaded_plugins}{$classname}) {
-        Module::Load::load($classname); # or Carp::croak(sprintf('failed to load a class "%s"', $classname));
+        eval { Module::Load::load($classname) };
+        if ($@) {
+            Carp::carp(sprintf('could not load a class %s : %s', $classname, $@));
+        }
         $self->{loaded_plugins}{$classname} = 1;
     }
 
     my $action = $classname->can($actionname);
 
     unless ($action) {
-        Carp::carp(sprintf('class method "%s#%s" is not found', $classname, $actionname));
+        Carp::carp(sprintf('class method "%s#%s" is undefined', $classname, $actionname));
         $classname = join('::', $self->{basename}, 'Root');
         $actionname = 'error_404';
+        $action = $classname->can($actionname);
     }
 
     +{
