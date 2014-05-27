@@ -1,5 +1,5 @@
 {
-   "abstract" : "It's new $module",
+   "abstract" : "A dispatcher that force a rule about routing like Catalyst.",
    "author" : [
       "ytnobody <ytnobody@gmail.com>"
    ],
@@ -58,6 +58,17 @@
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/ytnobody/Dispatcher-ClassMethod/issues"
+      },
+      "homepage" : "https://github.com/ytnobody/Dispatcher-ClassMethod",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/ytnobody/Dispatcher-ClassMethod.git",
+         "web" : "https://github.com/ytnobody/Dispatcher-ClassMethod"
+      }
+   },
    "version" : "0.01",
    "x_authority" : "cpan:YTURTLE"
 }
